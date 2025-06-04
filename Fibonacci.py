@@ -1,3 +1,5 @@
+# Triggering SonarCloud analysis
+
 def fibonacci(n):
     """Generate a list of the first n Fibonacci numbers."""
     if n <= 0:
