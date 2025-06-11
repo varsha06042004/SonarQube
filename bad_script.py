@@ -1,38 +1,57 @@
-def login(username, password):
-    if username == "admin" and password == "123456":
-        return True
-    return False
+# bad_script.py
 
-def login(username, password):  # 🔁 Duplicate function (code smell)
-    if username == "admin" and password == "123456":
-        return True
-    return False
+import os
 
-def calculate():
+# Hardcoded credentials (Security Hotspot)
+USERNAME = "admin"
+PASSWORD = "123456"  # Hardcoded password - not secure
+
+# Unused function (Code Smell)
+def unused_function():
+    print("This function is never used!")
+
+# Repeated block of code (Duplication)
+def compute_sum1():
     a = 10
     b = 20
-    sum_ab = a + b
-    print("Sum:", sum_ab)
+    return a + b
 
-    # Hardcoded credentials (Security Hotspot)
-    if a == 10:
-        password = "admin123"  # ❗ Security issue
+def compute_sum2():
+    a = 10
+    b = 20
+    return a + b
 
-    if b > 10:
-        print("B is greater than 10")
+def login(username, password):
+    if username == USERNAME and password == PASSWORD:
+        print("Login successful!")
+        return True
+    else:
+        print("Login failed.")
+        return False
 
-    for i in range(5):
-        print("Looping:", i)
+# Bug: return unreachable due to exception
+def divide(a, b):
+    try:
+        result = a / b
+        return result
+        raise Exception("This line is unreachable!")  # Unreachable code
+    except ZeroDivisionError:
+        print("Cannot divide by zero!")
+        return None
 
-def unused_function():  # Dead code
-    x = 100
-    y = 200
-    return x + y
-
+# Logic issue: variable shadowing + unused variable
+def process_items(items):
+    total = 0
+    for item in items:
+        total += item
+        item = 999  # Shadowing (bad practice)
+    unused_var = 123  # Dead code
+    return total
 
 if __name__ == "__main__":
-    print("Welcome")
-    is_logged_in = login("admin", "123456")
-    print("Logged in:", is_logged_in)
-
-    result = calculate()
+    print("Welcome to Bad Script")
+    login("admin", "123456")
+    print("Result of divide:", divide(10, 0))
+    print("Processed total:", process_items([1, 2, 3]))
+    print("Sum1:", compute_sum1())
+    print("Sum2:", compute_sum2())
