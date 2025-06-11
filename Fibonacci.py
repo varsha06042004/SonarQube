@@ -13,7 +13,54 @@ def fibonacci(n):
         sequence.append(next_num)
     return sequence
 
-def fibonacci_duplicate(n):
+def fibonacci_duplicate1(n):
+    """This is a duplicate version to test duplication detection."""
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+
+    sequence = [0, 1]
+    for i in range(2, n):
+        next_num = sequence[i - 1] + sequence[i - 2]
+        sequence.append(next_num)
+    return sequence
+
+def fibonacci_duplicate2(n):
+    """This is a duplicate version to test duplication detection."""
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+
+    sequence = [0, 1]
+    for i in range(2, n):
+        next_num = sequence[i - 1] + sequence[i - 2]
+        sequence.append(next_num)
+    return sequence
+
+
+def fibonacci_duplicate3(n):
+    """This is a duplicate version to test duplication detection."""
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+
+    sequence = [0, 1]
+    for i in range(2, n):
+        next_num = sequence[i - 1] + sequence[i - 2]
+        sequence.append(next_num)
+    return sequence
+
+
+def fibonacci_duplicate4(n):
     """This is a duplicate version to test duplication detection."""
     if n <= 0:
         return []
