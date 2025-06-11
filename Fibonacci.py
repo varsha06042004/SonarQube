@@ -1,7 +1,4 @@
-# Triggering SonarCloud analysis
-# code is completed
-# SUCCESS
-def fibonacci(n)
+def fibonacci(n):
     """Generate a list of the first n Fibonacci numbers."""
     if n <= 0:
         return []
@@ -16,8 +13,8 @@ def fibonacci(n)
         sequence.append(next_num)
     return sequence
 
-def fibonacci(n)
-    """Generate a list of the first n Fibonacci numbers."""
+def fibonacci_duplicate(n):
+    """This is a duplicate version to test duplication detection."""
     if n <= 0:
         return []
     elif n == 1:
@@ -30,10 +27,6 @@ def fibonacci(n)
         next_num = sequence[i - 1] + sequence[i - 2]
         sequence.append(next_num)
     return sequence
-
-
-
-
 
 if __name__ == "__main__":
     try:
